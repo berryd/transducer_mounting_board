@@ -7,8 +7,7 @@ radius=3/8;
 deadrise=24.5;
 groove=11/64;
 groove_inset=3/16;
-//screw_inset=1;
-screw_inset=1+1/8;
+screw_inset=1;
 screw_countersink_depth=7/16;
 screw_countersink_width=0.5;
 srew_main_bore=15/64;
@@ -48,7 +47,7 @@ module plate() {
 
 module grooves() {
   module one() {  
-    translate([groove_inset_mm,tan(90-deadrise)*groove_inset_mm,-1]) cylinder(groove_mm+1,groove_mm/2,groove_mm/2);
+    translate([groove_inset_mm,tan((90-deadrise)/2+deadrise)*groove_inset_mm,-1]) cylinder(groove_mm+1,groove_mm/2,groove_mm/2);
   }
   module two() {
     translate([groove_inset_mm,height_mm-radius_mm*2-groove_inset_mm,-1]) cylinder(groove_mm+1, groove_mm/2, groove_mm/2);
